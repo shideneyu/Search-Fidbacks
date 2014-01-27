@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;search-user/res/xml/searchable.xml&apos; to &apos;search_user.xml&apos;" description="Rename resource &apos;searchable.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="res/xml/searchable.xml" name="search_user.xml" stamp="1390814555503" updateReferences="true"/>
+</session>

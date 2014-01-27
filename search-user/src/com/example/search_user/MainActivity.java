@@ -2,16 +2,54 @@ package com.example.search_user;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.app.SearchManager;
+import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
+import android.widget.SearchView;
 
 public class MainActivity extends Activity {
 
+	private SearchView mSearchView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        
+        // Assign the search field to a variable
+        mSearchView = (SearchView) findViewById(R.id.searchable);
+        Log.v("test1", "ok1");	
+	    // Get the intent, verify the action and get the query
+	    Intent intent = getIntent();
+	    Log.v("test2", intent.ACTION_SEARCH);
+	    Log.v("test3", intent.getAction());
+	    
+	    
+	    
+	    final Intent queryIntent = getIntent();
+	    
+        final String queryAction = queryIntent.getAction();
+        if (Intent.ACTION_SEARCH.equals(queryAction)) {
+        	Log.v("bon", queryIntent.toString());
+        }
+	    
+	    
+	    
+	    
+	    
+	    
+	    if (intent.ACTION_SEARCH.equals(intent.getAction())) {
+		  Log.v("test3", "ok2");	
+		  String query = intent.getStringExtra(SearchManager.QUERY);
+	      Log.v("bon", query);	
+	    }
+	    setupSearchView();
     }
 
+    private void setupSearchView() {
+        mSearchView.setSubmitButtonEnabled(true); 
+        mSearchView.setQueryHint("Search Here");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
